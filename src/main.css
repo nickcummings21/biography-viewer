@@ -16,7 +16,7 @@ body {
   background: brown;
   color: #fffbe6;
   align-items: center;
-  box-shadow: 16px 0 8px rgba(0, 0, 0, .8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
 }
 
 .navbar-brand > img {
