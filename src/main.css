@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #333;
+  overflow: hidden;
+}
+
+.navbar {
+    position: fixed;
+    display: grid;
+    grid-template-columns: min-content min-content max-content;
+    background: brown;
+}
+
+.navbar-brand > img {
+    width: 80px;
+}
+
+#bio-text {
+  background: #fffbe6;
+  width: 80%;
+  margin: 0 auto;
+  padding: 64px 32px 32px 32px;
+  box-shadow: 0 0 16px 16px rgba(0, 0, 0, 0.8);
+}
