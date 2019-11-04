@@ -29,3 +29,10 @@ storiesTextEl.innerHTML = `
   off whether or not the washing had been done.
 </p>
 `;
+
+const popupHtml = `
+<div class="def-popup">
+  <div class="def-popup-title">Definition: </div>
+  <div className="def-popup-content"></div>
+</div>
+`;
