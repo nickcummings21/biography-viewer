@@ -11,26 +11,32 @@
   <body onload="analyzeText()">
     <div class="navbar">
       <div class="navbar-brand">
-          <img src="love-tree.svg" alt="tree">
+        <img src="assets/love-tree.svg" alt="tree" />
       </div>
       <div class="navbar-title">Albert&nbsp;Franklin&nbsp;Hulet</div>
       <div class="navbar-links">
-          <div class="navbar-link">Link</div>
+        <div class="navbar-link" onclick="showBiography(this)">Biography</div>
+        <div class="navbar-link" onclick="showShortStories(this)">Short Stories</div>
       </div>
     </div>
 
     <div class="main">
-        <div class="sidebar">
-            <div class="sidebar-title">Tools</div>
+      <div class="sidebar">
+        <div class="sidebar-title">Tools</div>
+        <div class="tip">
+          Tip: double click on a word to find out its meaning (try different words if it doesn't work at first).
         </div>
-    
-        <div class="viewbox">
-            <div class="text-container">
-                <div id="bio-text" class="text"></div>
-            </div>
+      </div>
+
+      <div class="viewbox">
+        <div class="text-container">
+          <div id="bio-text" class="text"></div>
+          <div id="story-1" class="text"></div>
         </div>
+      </div>
     </div>
 
-    <script src="text.js"></script>
+    <script src="bio-text.js"></script>
+    <script src="stories-text.js"></script>
   </body>
 </html>

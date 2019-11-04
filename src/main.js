@@ -23,6 +23,26 @@ document.ondblclick = async () => {
   let json = await response.json();
 
   console.log(json);
+  let def = json[0].def[0].sseq[0][0][1].dt[0][1];
+  console.log(def);
 
-//   alert(sel);
+  if (def) alert(sel + ": " + def);
+  else alert("No definition found for " + sel);
 };
+
+
+const showBiography = el => {
+  console.log(el);
+  document.querySelector("#story-1").style.setProperty("opacity", "0");
+  document.querySelector("#story-1").style.setProperty("z-index", "-1");
+  document.querySelector("#bio-text").style.setProperty("opacity", "1");
+  document.querySelector("#bio-text").style.setProperty("z-index", "1");
+}
+
+const showShortStories = el => {
+  console.log(el);
+  document.querySelector("#bio-text").style.setProperty("opacity", "0");
+  document.querySelector("#bio-text").style.setProperty("z-index", "-1");
+  document.querySelector("#story-1").style.setProperty("opacity", "1");
+  document.querySelector("#story-1").style.setProperty("z-index", "1");
+}
