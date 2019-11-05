@@ -1,20 +1,34 @@
 // const fs = require('fs');
+const freqDict = {};
 
 function analyzeText() {
   createFrequencyDictionary();
   document.querySelector(".main").onclick = event => {
-      // console.log("Click", event);
-      let defPopup = document.querySelector(".def-popup");
-      if (defPopup) {
-        defPopup.parentNode.removeChild(defPopup);
-      }
-  };  
+    // console.log("Click", event);
+    let defPopup = document.querySelector(".def-popup");
+    if (defPopup) {
+      defPopup.parentNode.removeChild(defPopup);
+    }
+  };
 }
 
 function createFrequencyDictionary() {
   let textEl = document.querySelector("#bio-text");
   let text = textEl.getAttribute("raw-text");
-  console.log(text.slice(0, 30));
+  // console.log(text.slice(0, 30));
+  let textWords = text
+    .replace(/[.,\/#!$%&;:()\"\n]/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .toLowerCase()
+    .split(" ");
+  for (let i = 0; i < textWords.length; i++) {
+    if (freqDict[textWords[i]] != undefined) {
+      freqDict[textWords[i]] += 1;
+    } else {
+      freqDict[textWords[i]] = 1;
+    }
+  }
+  console.log(freqDict);
 }
 
 // document.querySelectorAll("*").forEach(el => {

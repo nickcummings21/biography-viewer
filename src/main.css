@@ -127,6 +127,10 @@ body {
   width: 200px;
   /* height: 100px; */
   color: white;
+  text-align: left !important;
+  font-size: 1rem !important;
+  /* box-shadow: 3px 3px 3px rgba(0, 0, 0, .5); */
+  box-shadow: 0 24px 8px -12px rgba(0, 0, 0, .5);
 }
 .def-popup:before {
   content: '';
