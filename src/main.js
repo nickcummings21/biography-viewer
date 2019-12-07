@@ -1,8 +1,34 @@
-// const fs = require('fs');
+async function search() {
+  const searchTerms = document.querySelector(".search-input").value;
+  if (searchTerms == "") return;
+
+  const modal = document.querySelector(".modal");
+  const background = document.querySelector(".background");
+
+  modal.childNodes[1].innerHTML = 'Search terms: "' + searchTerms + '"';
+
+  const formatSearchTerms = searchTerms.split(" ").join("_");
+  const url =
+    "https://en.wikipedia.org/api/rest_v1/page/summary/" + formatSearchTerms;
+  console.log(url);
+  const res = await fetch(url, {});
+  const data = await res.json();
+  console.log(data);
+
+  const pageUrl = data.content_urls.desktop.page;
+  const link = "See <a href='" + pageUrl + "' target='_blank'>here</a> for more information.";
+  const content = data.extract == "" ? "No extract found." : data.extract;
+  modal.childNodes[3].innerHTML = content + "<br><br>" + link;
+
+  background.style.display = "flex";
+  background.onclick = () => (background.style.display = "none");
+}
+
 const freqDict = {};
 
 function analyzeText() {
   createFrequencyDictionary();
+
   document.querySelector(".main").onclick = event => {
     // console.log("Click", event);
     let defPopup = document.querySelector(".def-popup");

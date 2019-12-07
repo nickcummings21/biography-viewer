@@ -9,6 +9,13 @@
     <title>Albert Franklin Hulet</title>
   </head>
   <body onload="analyzeText()">
+    <div class="background">
+      <div class="modal">
+        <div class="modal-title">Search terms:</div>
+        <div class="modal-body"></div>
+      </div>
+    </div>
+
     <div class="navbar">
       <div class="navbar-brand">
         <img src="assets/love-tree.svg" alt="tree" />
@@ -16,7 +23,13 @@
       <div class="navbar-title">Albert&nbsp;Franklin&nbsp;Hulet</div>
       <div class="navbar-links">
         <div class="navbar-link" onclick="showBiography(this)">Biography</div>
-        <div class="navbar-link" onclick="showShortStories(this)">Short Stories</div>
+        <div class="navbar-link link-2" onclick="showShortStories(this)">Short Stories</div>
+      </div>
+      <div class="navbar-search-container">
+        <div class="navbar-search">
+          <input class="search-input" type="text">
+          <div class="search-btn" onclick="search()">Search</div>
+        </div>
       </div>
     </div>
 
