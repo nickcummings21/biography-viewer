@@ -10,10 +10,10 @@ async function search() {
   const formatSearchTerms = searchTerms.split(" ").join("_");
   const url =
     "https://en.wikipedia.org/api/rest_v1/page/summary/" + formatSearchTerms;
-  console.log(url);
+  // console.log(url);
   const res = await fetch(url, {});
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
 
   const pageUrl = data.content_urls.desktop.page;
   const link = "See <a href='" + pageUrl + "' target='_blank'>here</a> for more information.";
@@ -77,9 +77,9 @@ document.ondblclick = async event => {
   let response = await fetch(url);
   let json = await response.json();
 
-  console.log(json);
+  // console.log(json);
   let def = json[0].def[0].sseq[0][0][1].dt[0][1];
-  console.log(def);
+  // console.log(def);
 
   let popup = document.createElement("div");
   popup.classList.add("def-popup");
@@ -97,7 +97,7 @@ document.ondblclick = async event => {
 };
 
 const showBiography = el => {
-  console.log(el);
+  // console.log(el);
   document.querySelector("#story-1").style.setProperty("opacity", "0");
   document.querySelector("#story-1").style.setProperty("z-index", "-1");
   document.querySelector("#bio-text").style.setProperty("opacity", "1");
@@ -105,7 +105,7 @@ const showBiography = el => {
 };
 
 const showShortStories = el => {
-  console.log(el);
+  // console.log(el);
   document.querySelector("#bio-text").style.setProperty("opacity", "0");
   document.querySelector("#bio-text").style.setProperty("z-index", "-1");
   document.querySelector("#story-1").style.setProperty("opacity", "1");
