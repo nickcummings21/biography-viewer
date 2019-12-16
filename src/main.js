@@ -16,7 +16,10 @@ async function search() {
   // console.log(data);
 
   const pageUrl = data.content_urls.desktop.page;
-  const link = "See <a href='" + pageUrl + "' target='_blank'>here</a> for more information.";
+  const link =
+    "See <a href='" +
+    pageUrl +
+    "' target='_blank'>here</a> for more information.";
   const content = data.extract == "" ? "No extract found." : data.extract;
   modal.childNodes[3].innerHTML = content + "<br><br>" + link;
 
@@ -54,7 +57,25 @@ function createFrequencyDictionary() {
       freqDict[textWords[i]] = 1;
     }
   }
-  console.log(freqDict);
+  const chart = document.querySelector(".text-analysis-chart");
+  const entries = Object.entries(freqDict);
+  const sortedEntries = entries.sort((a, b) => b[1] - a[1]);
+  displayEntries(chart, sortedEntries, 0, 15);
+}
+
+function displayEntries(chartEl, entries, startIndex, numEntries) {
+  for (let i = 0; i < numEntries; i++) {
+    const entry = entries[startIndex + i];
+    const num = startIndex + i + 1;
+    chartEl.innerHTML += `
+      <div>${num}</div>
+      <div>${entry[0]}</div>
+      <div>${entry[1]}</div>
+    `;
+  }
+  chartEl.dataset.startIndex = startIndex;
+  chartEl.dataset.entries = entries;
+  console.log(chartEl);
 }
 
 // document.querySelectorAll("*").forEach(el => {
@@ -96,18 +117,36 @@ document.ondblclick = async event => {
   // else alert("No definition found for " + sel);
 };
 
-const showBiography = el => {
+const showBiography = link => {
   // console.log(el);
-  document.querySelector("#story-1").style.setProperty("opacity", "0");
-  document.querySelector("#story-1").style.setProperty("z-index", "-1");
+  document.querySelectorAll(".text").forEach(el => {
+    el.style.setProperty("opacity", "0");
+    el.style.setProperty("z-index", "-1");
+  });
+  // document.querySelector("#story-1").style.setProperty("opacity", "0");
+  // document.querySelector("#story-1").style.setProperty("z-index", "-1");
   document.querySelector("#bio-text").style.setProperty("opacity", "1");
   document.querySelector("#bio-text").style.setProperty("z-index", "1");
 };
 
-const showShortStories = el => {
+const showShortStories = link => {
   // console.log(el);
-  document.querySelector("#bio-text").style.setProperty("opacity", "0");
-  document.querySelector("#bio-text").style.setProperty("z-index", "-1");
+  document.querySelectorAll(".text").forEach(el => {
+    el.style.setProperty("opacity", "0");
+    el.style.setProperty("z-index", "-1");
+  });
+  // document.querySelector("#bio-text").style.setProperty("opacity", "0");
+  // document.querySelector("#bio-text").style.setProperty("z-index", "-1");
   document.querySelector("#story-1").style.setProperty("opacity", "1");
   document.querySelector("#story-1").style.setProperty("z-index", "1");
+};
+
+const showTextAnalysis = link => {
+  // console.log(el);
+  document.querySelectorAll(".text").forEach(el => {
+    el.style.setProperty("opacity", "0");
+    el.style.setProperty("z-index", "-1");
+  });
+  document.querySelector("#text-analysis").style.setProperty("opacity", "1");
+  document.querySelector("#text-analysis").style.setProperty("z-index", "1");
 };

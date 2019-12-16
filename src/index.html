@@ -24,6 +24,8 @@
       <div class="navbar-links">
         <div class="navbar-link" onclick="showBiography(this)">Biography</div>
         <div class="navbar-link link-2" onclick="showShortStories(this)">Short Stories</div>
+        <div class="navbar-link" onclick="showTextAnalysis(this)">Text Breakdown</div>
+        <div class="navbar-link">The Hulets</div>
       </div>
       <div class="navbar-search-container">
         <div class="navbar-search">
@@ -45,6 +47,18 @@
         <div class="text-container">
           <div id="bio-text" class="text"></div>
           <div id="story-1" class="text"></div>
+          <div id="text-analysis" class="text">
+            <div class="text-analysis-title">Text Breakdown</div>
+            <div class="text-analysis-body">
+              <div class="text-analysis-chart">
+                <div>#</div>
+                <div>Word</div>
+                <div>Frequency</div>
+              </div>
+              <div class="chart-back-arrow">&#8592;</div>
+              <div class="chart-next-arrow">&#8594;</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

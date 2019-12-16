@@ -5,6 +5,7 @@
 body {
   margin: 0;
   background: #333;
+  font-family: Georgia;
   /* overflow: auto; */
 }
 
@@ -153,7 +154,8 @@ body {
 }
 
 #bio-text,
-#story-1 {
+#story-1,
+#text-analysis {
   padding: 0 32px 32px 32px;
   overflow: auto;
   height: calc(100vh - 80px);
@@ -163,12 +165,17 @@ body {
 }
 
 #bio-text {
+  opacity: 0;
+  z-index: -1;
 }
 
 #story-1 {
   line-height: 150%;
   opacity: 0;
   z-index: -1;
+}
+
+#text-analysis {
 }
 
 .story-pic-container {
@@ -217,4 +224,49 @@ body {
 
 .def-popup-content {
   padding: 0.5rem 1rem;
+}
+
+.text-analysis-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.text-analysis-body {
+
+}
+
+.text-analysis-chart {
+  display: grid;
+  grid-template-columns: 48px 120px 120px;
+  text-align: center;
+  margin: auto;
+  width: 300px;
+  position: relative;
+}
+
+.text-analysis-chart div {
+  border: 1px solid brown;
+  padding: 8px;
+}
+
+.chart-back-arrow,
+.chart-next-arrow {
+  position: absolute;
+  bottom: 32px;
+  padding: 8px;
+  border-radius: 8px;
+  background: brown;
+  color: #fffbe6;
+  font-size: 1.3rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.chart-back-arrow {
+  left: 64px;
+}
+
+.chart-next-arrow {
+  right: 64px;
 }
